@@ -62,19 +62,14 @@ export default {
           logout: { url: 'http://localhost:3333/logout', method: 'post' },
           user: { url: 'http://localhost:3333/checklogin', method: 'get' }
         },
-
       }
     },
-    redirect: {
-      login: '/login',
-      logout: '/',
-      callback: '/login',
-      home: '/',
-    }
+    
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

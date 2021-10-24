@@ -1,5 +1,11 @@
 <template>
-  <div>
+  <v-container>
+    <el-alert 
+      v-if="error"
+      :title="error"
+      type="error">
+    </el-alert>
+
     <el-form ref="form" :model="form" label-width="120px">
       <el-form-item label="Correo">
         <el-input v-model="form.email" type="email"></el-input>
@@ -13,13 +19,15 @@
         <el-button type="primary" @click="userLogin()">Iniciar Sesion</el-button>
       <el-button>Cancel</el-button>
     </el-form>
-  </div>
+  </v-container>
 </template>
 
 <script>
 export default {
+  auth: 'guest',
   name: 'Login',
   layout: 'form',
+  middleware: 'auth',
   data() {
     return {
       form: {
@@ -27,22 +35,27 @@ export default {
         password: '',
         rememberMe: false,
       },
+      error: ''
     }
   },
   methods: {
     async userLogin() {
-      this.message = null;
-      this.errors = [];
-      
       try {
+        this.error = ''
         const response = await this.$auth.loginWith('local', {
           data: this.form,
         })
+        this.$router.push('/')
+        this.$notify({
+          title: 'Success',
+          message: 'This is a success message',
+          type: 'success'
+        });
         console.log(response)
       } catch (err) {
-        console.log(err)
+        this.error = err.response.data
       }
-    },
-  },
+    }
+  }
 }
 </script>

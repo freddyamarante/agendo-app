@@ -1,10 +1,11 @@
 <template>
-  <div>
-    <el-tabs v-model="activeName" @tab-click="handleClick">
-      <el-tab-pane label="Crear Agenda" name="first">Crear Agenda</el-tab-pane>
-      <el-tab-pane label="Crear Contacto" name="second">Crear Contacto</el-tab-pane>
-    </el-tabs>
-  </div>
+  <el-menu :default-active="$route.path" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+    <el-menu-item :disabled="!$auth.loggedIn" index="/" @click="$router.push('/')">Inicio</el-menu-item>
+    <el-menu-item :disabled="!$auth.loggedIn" index="/todo/create" @click="$router.push('/todo/create')">Crear Agenda</el-menu-item>
+    <el-menu-item v-if="$auth.loggedIn" @click="confirmLogout()">
+      Logout
+    </el-menu-item>
+  </el-menu>
 </template>
 
 <script>
@@ -18,6 +19,30 @@
       handleClick(tab, event) {
         console.log(tab, event)
       },
+      logout() {
+        this.$auth.logout()
+          .then(() => {
+            this.$router.push('/login')
+          })
+      },
+      confirmLogout() {
+        this.$confirm('This will permanently delete the file. Continue?', 'Warning', {
+          confirmButtonText: 'OK',
+          cancelButtonText: 'Cancel',
+          type: 'warning'
+        }).then(() => {
+          this.logout()
+          this.$message({
+            type: 'success',
+            message: 'Delete completed'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: 'Delete canceled'
+          });          
+        });
+      }
     },
   }
 </script>
