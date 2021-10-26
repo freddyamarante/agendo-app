@@ -1,10 +1,12 @@
 <template>
   <div>
-    <contact 
-      v-for="contact in contacts"
-      :key="contact.id"
-      :contact="contact"
-    />
+    <contact v-for="contact in contacts" :key="contact.id" :contact="contact" />
+    <el-button
+      type="primary"
+      icon="el-icon-plus"
+      circle
+      @click="$router.push('/contact/create')"
+    ></el-button>
   </div>
 </template>
 
@@ -15,7 +17,8 @@ export default {
     contacts: {
       type: Object,
       required: true,
-    }
-  }
+    },
+  },
+  methods: {},
 }
 </script>

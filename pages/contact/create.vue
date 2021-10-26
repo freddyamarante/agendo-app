@@ -1,6 +1,6 @@
 <template>
-    <div>
-    <h1>Añadir Todo</h1>
+  <div>
+    <h1>Añadir contacto</h1>
   </div>
 </template>
 

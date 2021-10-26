@@ -5,6 +5,12 @@
       :key="todo.id"
       :todo="todo"
     />
+    <el-button 
+      type="primary" 
+      icon="el-icon-plus" 
+      circle
+      @click="$router.push('/todo/create')"
+      ></el-button>
   </div>
 </template>
 
@@ -19,3 +25,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.el-button {
+  justify-content: center;
+}
+</style>
