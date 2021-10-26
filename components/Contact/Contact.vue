@@ -1,53 +1,40 @@
 <template>
   <div>
     <el-card class="row-bg box-card" shadow="hover" :body-style="{ padding: '0px' }">
-        <el-descriptions :column="3" :size="size" border>
-          <el-descriptions-item :span="3">
-            <template slot="label">
-              <i class="el-icon-bell"></i>
-              Título
-            </template>
-            {{ todo.title }}
-          </el-descriptions-item>
-          <el-descriptions-item :span="3">
-            <template slot="label">
-              <i class="el-icon-document"></i>
-              Descripción
-            </template>
-            {{ todo.description }}
-          </el-descriptions-item>
-          <el-descriptions-item>
-            <template slot="label">
-              <i class="el-icon-location-outline"></i>
-              Lugar
-            </template>
-            {{ todo.location }}
-          </el-descriptions-item>
+        <el-descriptions :column="2" :size="size" border>
           <el-descriptions-item>
             <template slot="label">
               <i class="el-icon-user"></i>
-              Contacto
+              Nombre
             </template>
-            <div v-if="todo.contact">
-              {{ todo.contact.name }}
-            </div>
-            <div v-else-if="!todo.contact">Ninguno</div>
+            {{ contact.name }}
           </el-descriptions-item>
           <el-descriptions-item>
             <template slot="label">
-              <i class="el-icon-date"></i>
-              Fecha
+              Apellido
             </template>
-            {{ todo.date }}
+            {{ contact.lastname }}
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label">
+              <i class="el-icon-phone"></i>
+              Teléfono
+            </template>
+            {{ contact.phone }}
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label">
+              <i class="el-icon-message"></i>
+              Correo
+            </template>
+            {{contact.email}}
           </el-descriptions-item>
           <el-descriptions-item :content-style="{'text-align': 'center'}">
             <template slot="label">
               <i class="el-icon-finished"></i>
               Acciones
             </template>
-              <el-button type="success" round>Completado</el-button>
               <el-button type="primary" icon="el-icon-edit" circle></el-button>
-              <el-button type="info" icon="el-icon-message" circle></el-button>
               <el-button type="danger" icon="el-icon-delete" circle></el-button>
           </el-descriptions-item>
         </el-descriptions>
@@ -57,9 +44,9 @@
 
 <script>
 export default {
-  name: 'Todo',
+  name: 'Contact',
   props: {
-    todo: {
+    contact: {
       type: Object,
       required: true,
     },
