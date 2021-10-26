@@ -6,6 +6,7 @@
 
 <script>
   export default {
+    name: 'CreateContact',
     layout: 'action',
     middleware: 'auth'
   }

@@ -1,5 +1,5 @@
 <template>
-  <el-page-header @click="$router.push(-1)"></el-page-header>
+  <el-page-header @back="$router.go(-1)"></el-page-header>
 </template>
 
 <script>

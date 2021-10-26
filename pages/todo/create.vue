@@ -1,12 +1,130 @@
 <template>
-    <div>
-    <h1>Añadir Todo</h1>
+  <div>
+    <h1>Añadir Agenda</h1>
+    <el-card
+      v-loading="loading"
+      class="row-bg box-card"
+      shadow="hover"
+      :body-style="{ padding: '0px' }"
+    >
+      <el-form ref="form" :model="form">
+        <el-descriptions border>
+          <el-descriptions-item :span="3">
+            <template slot="label">
+              <i class="el-icon-postcard"></i>
+              Título
+            </template>
+            <el-input v-model="form.title" clearable> </el-input>
+          </el-descriptions-item>
+          <el-descriptions-item :span="3">
+            <template slot="label">
+              <i class="el-icon-document"></i>
+              Descripción
+            </template>
+            <el-input v-model="form.description" clearable> </el-input>
+          </el-descriptions-item>
+          <el-descriptions-item :span="3">
+            <template slot="label">
+              <i class="el-icon-location-outline"></i>
+              Lugar
+            </template>
+            <el-input v-model="form.location" clearable> </el-input>
+          </el-descriptions-item>
+          <el-descriptions-item :span="3">
+            <template slot="label">
+              <i class="el-icon-user"></i>
+              Contacto
+            </template>
+            <el-select v-model="form.contactId" placeholder="Select" clearable>
+              <el-option
+                v-for="contact in contactOptions"
+                :key="contact.id"
+                :label="`${contact.name} ${contact.lastname}`"
+                :value="contact.id"
+              >
+              </el-option>
+            </el-select>
+          </el-descriptions-item>
+          <el-descriptions-item :span="3">
+            <template slot="label">
+              <i class="el-icon-date"></i>
+              Fecha
+            </template>
+            <div class="block">
+              <el-date-picker
+                v-model="form.date"
+                type="date"
+                placeholder="Escoge fecha"
+                format="dd.MM.yyyy"
+              >
+              </el-date-picker>
+            </div>
+          </el-descriptions-item>
+        </el-descriptions>
+    <el-form-item>
+      <el-button type="primary" @click="addTodo()">Añadir Agenda</el-button>
+    </el-form-item>  
+      </el-form>
+    </el-card>
   </div>
 </template>
 
 <script>
-  export default {
-    layout: 'action',
-    middleware: 'auth'
+export default {
+  name: 'CreateTodo',
+  layout: 'action',
+  middleware: 'auth',
+  data() {
+    return {
+      form: {
+        title: '',
+        description: '',
+        location: '',
+        contactId: '',
+        date: '',
+        completed: false,
+      },
+      contactOptions: [],
+      loading: false,
+    }
+  },
+  beforeMount() {
+    this.getContacts()
+  },
+  methods: {
+    async getContacts() {
+      this.contactOptions = await this.$axios.$get('http://localhost:3333/contacts')
+    },
+
+    async addTodo() {
+      this.loading = true
+      const data = this.normalize(this.form)
+      await this.$axios.$post('http://localhost:3333/todos', data)
+      this.loading = false
+      this.$router.push('/')
+      this.$notify({
+        title: 'Agenda añadida',
+        type: 'success'
+      })
+    },
+
+    normalize(data) {
+      const date = new Date(data.date)
+      data.date = date.toLocaleDateString('fr-CH')
+      return data
+    }
   }
+}
 </script>
+
+<style scoped>
+.box-card {
+  width: 750px;
+  padding: 10;
+  margin-bottom: 10px;
+}
+
+.center {
+  text-align: center;
+}
+</style>

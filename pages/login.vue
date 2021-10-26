@@ -48,9 +48,9 @@ export default {
         this.$router.push('/')
         this.$notify({
           title: 'Inicio de sesión exitoso',
-          message: 'Haz iniciado sesión',
+          message: 'Has iniciado sesión',
           type: 'success'
-        });
+        })
       } catch (err) {
         this.error = err.response.data
       }
