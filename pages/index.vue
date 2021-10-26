@@ -3,7 +3,7 @@
     <el-row :gutter="20">
       <el-col :span="12">
         <h1>Agendas</h1>
-        <todo-list :todos="todos" />
+        <todo-list :todos="todos" @delete="deleteTodo($event)"/>
       </el-col>
       <el-col :span="12">
         <h1>Contactos</h1>
@@ -21,10 +21,11 @@ export default {
     const contacts = await $axios.$get('http://localhost:3333/contacts')
     return { todos, contacts }
   },
-  data: () => ({
-    todos: {},
-    contacts: {},
-  }),
+  methods: {
+    deleteTodo(id) {
+      this.todos = this.todos.filter(todo => todo.id !== id)
+    }
+  }
 }
 </script>
 

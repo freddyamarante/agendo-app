@@ -4,6 +4,7 @@
       v-for="todo in todos" 
       :key="todo.id"
       :todo="todo"
+      @delete="$emit('delete', $event)"
     />
     <el-button 
       type="primary" 
@@ -19,7 +20,7 @@ export default {
   name: 'TodoList',
   props: {
     todos: {
-      type: Object,
+      type: Array,
       required: true
     }
   }

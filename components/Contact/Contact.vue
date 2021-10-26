@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-card class="row-bg box-card" shadow="hover" :body-style="{ padding: '0px' }">
-        <el-descriptions :column="2" :size="size" border>
+        <el-descriptions :column="2" border>
           <el-descriptions-item>
             <template slot="label">
               <i class="el-icon-user"></i>

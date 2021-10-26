@@ -15,7 +15,7 @@ export default {
   name: 'ContactList',
   props: {
     contacts: {
-      type: Object,
+      type: Array,
       required: true,
     },
   },
