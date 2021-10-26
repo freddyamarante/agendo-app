@@ -1,8 +1,11 @@
 <template>
-  <div>
-    <todo-list
-     :todos="todos"/>
-  </div>
+  <el-container>
+    <el-row :gutter="12">
+      <el-col :span="12">
+      <todo-list :todos="todos"/>
+      </el-col>
+    </el-row>
+  </el-container>
 </template>
 
 <script>
@@ -13,7 +16,7 @@ export default {
     return { todos }
   },
   data: () => ({
-    todos: [],
+    todos: {},
   }),
 }
 </script>
