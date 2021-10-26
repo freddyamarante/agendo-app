@@ -1,5 +1,5 @@
 <template>
-  <div>asadsasdasda</div>
+  <div>Registrate</div>
 </template>
 
 <script>

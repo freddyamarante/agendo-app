@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <l-container>
     <el-alert 
       v-if="error"
       :title="error"
@@ -12,14 +12,12 @@
       </el-form-item>
       <el-form-item label="Contraseña">
         <el-input v-model="form.password" type="password"></el-input>
+        
       </el-form-item>
-      <el-form-item label="Recordarme">
-        <el-checkbox v-model="form.rememberMe"></el-checkbox>
-      </el-form-item>
-        <el-button type="primary" @click="userLogin()">Iniciar Sesion</el-button>
-      <el-button>Cancel</el-button>
+        <el-button type="primary" @click="userLogin()">Iniciar Sesión</el-button>
+        <el-button type="info" @click="$router.push('/register')">Registrarse</el-button>
     </el-form>
-  </v-container>
+  </l-container>
 </template>
 
 <script>
@@ -42,16 +40,15 @@ export default {
     async userLogin() {
       try {
         this.error = ''
-        const response = await this.$auth.loginWith('local', {
+        await this.$auth.loginWith('local', {
           data: this.form,
         })
         this.$router.push('/')
         this.$notify({
-          title: 'Success',
-          message: 'This is a success message',
+          title: 'Inicio de sesión exitoso',
+          message: 'Haz iniciado sesión',
           type: 'success'
         });
-        console.log(response)
       } catch (err) {
         this.error = err.response.data
       }

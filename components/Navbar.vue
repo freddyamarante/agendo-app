@@ -26,22 +26,17 @@
           })
       },
       confirmLogout() {
-        this.$confirm('This will permanently delete the file. Continue?', 'Warning', {
-          confirmButtonText: 'OK',
-          cancelButtonText: 'Cancel',
+        this.$confirm('¿Estás seguro que deseas cerrar sesión?', 'Warning', {
+          confirmButtonText: 'Si',
+          cancelButtonText: 'No',
           type: 'warning'
         }).then(() => {
           this.logout()
           this.$message({
             type: 'success',
-            message: 'Delete completed'
+            message: 'Cierre de sesión exitoso'
           });
-        }).catch(() => {
-          this.$message({
-            type: 'info',
-            message: 'Delete canceled'
-          });          
-        });
+        })      
       }
     },
   }
