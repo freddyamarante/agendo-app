@@ -8,10 +8,10 @@
 
     <el-form ref="form" :model="form" label-width="120px">
       <el-form-item label="Correo">
-        <el-input v-model="email" type="email"></el-input>
+        <el-input v-model="form.email" type="email"></el-input>
       </el-form-item>
         <el-form-item label="Contraseña">
-        <el-input v-model="password" type="password"></el-input>
+        <el-input v-model="form.password" type="password"></el-input>
       </el-form-item>
 
       <el-form-item>
@@ -30,9 +30,11 @@ export default {
   middleware: 'auth',
   data() {
     return {
-      email: '',
-      password: '',
-      error: '',
+      form: {
+        email: '',
+        password: '',
+      },
+      error: ''
     }
   },
   methods: {
@@ -40,7 +42,8 @@ export default {
       try {
         this.error = ''
         await this.$axios.post('http://localhost:3333/users', {
-          data: this.form,
+          email: this.form.email,
+          password: this.form.password
         })
         
         await this.$auth.loginWith('local', {

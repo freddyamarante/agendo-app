@@ -12,10 +12,12 @@
       </el-form-item>
       <el-form-item label="Contraseña">
         <el-input v-model="form.password" type="password"></el-input>
-        
       </el-form-item>
+    
+      <el-form-item>
         <el-button type="primary" @click="userLogin()">Iniciar Sesión</el-button>
         <el-button type="info" @click="$router.push('/register')">Registrarse</el-button>
+      </el-form-item>  
     </el-form>
   </l-container>
 </template>

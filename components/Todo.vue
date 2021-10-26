@@ -9,8 +9,11 @@
           <el-col :span="4">
             {{todo.description}}
           </el-col>
-          <el-col :span="4">
+          <el-col v-if="todo.contact" :span="4">
             {{todo.contact.name}}
+          </el-col>
+          <el-col v-else-if="!todo.contact" :span="4">
+            Ninguno
           </el-col>
           <el-col :span="4">
             {{todo.location}}
