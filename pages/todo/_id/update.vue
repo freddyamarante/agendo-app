@@ -1,13 +1,13 @@
 <template>
   <div>
-    <h1>Añadir Agenda</h1>
-    <todo-form />
+    <h1>Editar Agenda</h1>
+    <todo-form :todo-id="$route.params.id" type="update" />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'CreateTodo',
+  name: 'UpdateTodo',
   layout: 'action',
   middleware: 'auth',
 }

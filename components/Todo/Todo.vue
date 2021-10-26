@@ -50,7 +50,10 @@
             Acciones
           </template>
           <el-button type="success" round>Completado</el-button>
-          <el-button type="primary" icon="el-icon-edit" circle></el-button>
+          <el-button type="primary"
+           icon="el-icon-edit" 
+           circle
+           @click="$router.push(`/todo/${todo.id}/update`)"></el-button>
           <el-button type="info" icon="el-icon-message" circle></el-button>
           <el-button
             type="danger"

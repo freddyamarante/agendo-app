@@ -17,7 +17,7 @@
 export default {
   middleware: 'auth',
   async asyncData({ $axios }) {
-    const todos = await $axios.$get('http://localhost:3333/todos')
+    const todos = await $axios.$get('http://localhost:3333/todos/?completed=0')
     const contacts = await $axios.$get('http://localhost:3333/contacts')
     return { todos, contacts }
   },
