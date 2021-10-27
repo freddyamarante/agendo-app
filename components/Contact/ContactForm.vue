@@ -9,28 +9,28 @@
       <el-descriptions border>
         <el-descriptions-item :span="3">
           <template slot="label">
-            <i class="el-icon-postcard"></i>
+            <i class="el-icon-user"></i>
             Nombre
           </template>
           <el-input v-model="form.name" clearable> </el-input>
         </el-descriptions-item>
         <el-descriptions-item :span="3">
           <template slot="label">
-            <i class="el-icon-document"></i>
+            <i class="el-icon-user"></i>
             Apellido
           </template>
           <el-input v-model="form.lastname" clearable> </el-input>
         </el-descriptions-item>
         <el-descriptions-item :span="3">
           <template slot="label">
-            <i class="el-icon-location-outline"></i>
+            <i class="el-icon-phone-outline"></i>
             Teléfono
           </template>
           <el-input v-model="form.phone" clearable> </el-input>
         </el-descriptions-item>
         <el-descriptions-item :span="3">
           <template slot="label">
-            <i class="el-icon-document"></i>
+            <i class="el-icon-message"></i>
             Correo
           </template>
           <el-input v-model="form.email" type="email" clearable> </el-input>
