@@ -1,7 +1,13 @@
 <template>
   <div>
+    <el-empty 
+      v-if="todos.length === 0"
+      description="No tienes contactos añadidos"
+    >
+    </el-empty>
     <todo 
       v-for="todo in todos" 
+      v-else-if="todos.length !== 0"
       :key="todo.id"
       :todo="todo"
       @delete="$emit('delete', $event)"
