@@ -34,6 +34,7 @@
           </template>
           <div v-if="todo.contact">
             {{ todo.contact.name }}
+            {{  todo.contact.lastname }}
           </div>
           <div v-else-if="!todo.contact">Ninguno</div>
         </el-descriptions-item>

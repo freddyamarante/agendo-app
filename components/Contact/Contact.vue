@@ -17,7 +17,7 @@
           </el-descriptions-item>
           <el-descriptions-item>
             <template slot="label">
-              <i class="el-icon-phone"></i>
+              <i class="el-icon-phone-outline"></i>
               Teléfono
             </template>
             {{ contact.phone }}
@@ -34,7 +34,7 @@
               <i class="el-icon-finished"></i>
               Acciones
             </template>
-              <el-button type="primary" icon="el-icon-edit" circle></el-button>
+              <el-button type="primary" icon="el-icon-edit" circle @click="$router.push(`/contact/${contact.id}/update`)"></el-button>
               <el-button type="danger" icon="el-icon-delete" circle></el-button>
           </el-descriptions-item>
         </el-descriptions>
