@@ -147,3 +147,15 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.box-card {
+  width: 750px;
+  padding: 10;
+  margin-bottom: 10px;
+}
+
+.center {
+  text-align: center;
+}
+</style>
