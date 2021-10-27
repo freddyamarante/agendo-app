@@ -26,9 +26,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.el-button {
-  justify-content: center;
-}
-</style>

@@ -1,6 +1,11 @@
 <template>
   <div>
-    <contact v-for="contact in contacts" :key="contact.id" :contact="contact" />
+    <contact 
+    v-for="contact in contacts" 
+    :key="contact.id" 
+    :contact="contact"
+    @delete="$emit('delete', $event)"
+    />
     <el-button
       type="primary"
       icon="el-icon-plus"

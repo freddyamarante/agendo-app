@@ -7,7 +7,7 @@
       </el-col>
       <el-col :span="12">
         <h1>Contactos</h1>
-        <contact-list :contacts="contacts" />
+        <contact-list :contacts="contacts" @delete="deleteContact($event)" />
       </el-col>
     </el-row>
   </el-container>
@@ -24,6 +24,10 @@ export default {
   methods: {
     deleteTodo(id) {
       this.todos = this.todos.filter(todo => todo.id !== id)
+    },
+
+    deleteContact(id) {
+      this.contacts = this.contacts.filter(contact => contact.id !== id)
     }
   }
 }

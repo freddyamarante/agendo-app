@@ -60,7 +60,7 @@
             type="danger"
             icon="el-icon-delete"
             circle
-            @click="deleteTodo"
+            @click="deleteTodo()"
           ></el-button>
         </el-descriptions-item>
       </el-descriptions>
