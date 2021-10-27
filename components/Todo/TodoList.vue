@@ -2,7 +2,7 @@
   <div>
     <el-empty 
       v-if="todos.length === 0"
-      description="No tienes contactos añadidos"
+      description="No tienes agendas añadidos"
     >
     </el-empty>
     <todo 
