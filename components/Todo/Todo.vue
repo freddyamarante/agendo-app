@@ -45,12 +45,12 @@
           </template>
           {{ todo.date }}
         </el-descriptions-item>
-        <el-descriptions-item :content-style="{ 'text-align': 'center' }">
+        <el-descriptions-item v-if="todo.completed === 0" content-style="{ 'text-align': 'center' }">
           <template slot="label">
             <i class="el-icon-finished"></i>
             Acciones
           </template>
-          <el-button type="success" round>Completado</el-button>
+          <el-button type="success" round @click="setTodoAsCompleted()">Completado</el-button>
           <el-button type="primary"
            icon="el-icon-edit" 
            circle
@@ -94,6 +94,16 @@ export default {
           })
       })
     },
+
+    setTodoAsCompleted() {
+      this.$axios.$put(`http://localhost:3333/todos`, {
+        id: this.todo.id,
+        completed: true
+      })
+        .then(() => {
+          this.$emit('completed', this.todo.id)
+        })
+    }
   },
 }
 </script>

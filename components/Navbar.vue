@@ -1,6 +1,7 @@
 <template>
   <el-menu :default-active="$route.path" class="el-menu-demo" mode="horizontal" @select="handleSelect">
     <el-menu-item :disabled="!$auth.loggedIn" index="/" @click="$router.push('/')">Inicio</el-menu-item>
+    <el-menu-item :disabled="!$auth.loggedIn" index="/todo/completed" @click="$router.push('/todo/completed')">Completados</el-menu-item>
     <el-menu-item v-if="$auth.loggedIn" @click="confirmLogout()">
       Logout
     </el-menu-item>
@@ -40,3 +41,9 @@
     },
   }
 </script>
+
+<style scoped>
+.el-menu {
+  position: fixed;
+}
+</style>

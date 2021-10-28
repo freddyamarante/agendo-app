@@ -1,15 +1,13 @@
 <template>
   <el-container>
-    <el-row :gutter="20">
-      <el-col :span="12">
-        <h1>Agendas</h1>
-        <todo-list :todos="todos" @delete="deleteTodo($event)"/>
-      </el-col>
-      <el-col :span="12">
-        <h1>Contactos</h1>
-        <contact-list :contacts="contacts" @delete="deleteContact($event)" />
-      </el-col>
-    </el-row>
+    <el-main>
+      <h1>Agendas</h1>
+      <todo-list :todos="todos" @delete="removeTodo($event)" @completed="removeTodo($event)" />
+    </el-main>
+    <el-main>
+      <h1>Contactos</h1>
+      <contact-list :contacts="contacts" @delete="deleteContact($event)" />
+    </el-main>    
   </el-container>
 </template>
 
@@ -22,14 +20,20 @@ export default {
     return { todos, contacts }
   },
   methods: {
-    deleteTodo(id) {
-      this.todos = this.todos.filter(todo => todo.id !== id)
+    removeTodo(id) {
+      this.todos = this.todos.filter((todo) => todo.id !== id)
     },
 
     deleteContact(id) {
-      this.contacts = this.contacts.filter(contact => contact.id !== id)
-    }
-  }
+      this.contacts = this.contacts.filter((contact) => contact.id !== id)
+    },
+  },
 }
 </script>
 
+<style scoped>
+  .el-main {
+    text-align: center;
+    padding: 0;
+  }
+</style>

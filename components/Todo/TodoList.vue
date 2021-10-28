@@ -2,7 +2,7 @@
   <div>
     <el-empty 
       v-if="todos.length === 0"
-      description="No tienes agendas añadidos"
+      description="No tienes agendas añadidas"
     >
     </el-empty>
     <todo 
@@ -11,8 +11,10 @@
       :key="todo.id"
       :todo="todo"
       @delete="$emit('delete', $event)"
+      @completed="$emit('completed', $event)"
     />
     <el-button 
+      v-if="type === 'all'"
       type="primary" 
       icon="el-icon-plus" 
       circle
@@ -28,6 +30,10 @@ export default {
     todos: {
       type: Array,
       required: true
+    },
+    type: {
+      type: String,
+      default: 'all'
     }
   }
 }
