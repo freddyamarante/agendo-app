@@ -1,5 +1,5 @@
 <template>
-  <el-menu :default-active="$route.path" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+  <el-menu :default-active="$route.path" mode="horizontal">
     <el-menu-item :disabled="!$auth.loggedIn" index="/" @click="$router.push('/')">Inicio</el-menu-item>
     <el-menu-item :disabled="!$auth.loggedIn" index="/todo/completed" @click="$router.push('/todo/completed')">Completados</el-menu-item>
     <el-menu-item v-if="$auth.loggedIn" @click="confirmLogout()">
@@ -16,9 +16,6 @@
       }
     },
     methods: {
-      handleClick(tab, event) {
-        console.log(tab, event)
-      },
       logout() {
         this.$auth.logout()
           .then(() => {

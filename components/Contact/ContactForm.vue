@@ -83,9 +83,10 @@ export default {
       const data = this.form
       await this.$axios.$post('http://localhost:3333/contacts', data)
       this.loading = false
-      this.$router.push('/')
+      await this.$router.push('/')
       this.$notify({
         title: 'Contacto añadido',
+        message: '',
         type: 'success'
       })
     },
@@ -93,9 +94,10 @@ export default {
     async updateContact() {
       const data = this.form
       await this.$axios.$put('http://localhost:3333/contacts', data)
-      this.$router.push('/')
+      await this.$router.push('/')
       this.$notify({
         title: 'Contacto editado',
+        message: '',
         type: 'success'
       })
     },

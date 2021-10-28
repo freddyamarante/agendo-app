@@ -115,7 +115,7 @@ export default {
       const data = this.normalize(this.form)
       await this.$axios.$post('http://localhost:3333/todos', data)
       this.loading = false
-      this.$router.push('/')
+      await this.$router.push('/')
       this.$notify({
         title: 'Agenda añadida',
         type: 'success'
@@ -125,7 +125,7 @@ export default {
     async updateTodo() {
       const data = this.normalize(this.form)
       await this.$axios.$put('http://localhost:3333/todos', data)
-      this.$router.push('/')
+      await this.$router.push('/')
       this.$notify({
         title: 'Agenda editada',
         type: 'success'

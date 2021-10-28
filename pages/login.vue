@@ -1,5 +1,5 @@
 <template>
-  <l-container>
+  <el-container>
     <el-alert 
       v-if="error"
       :title="error"
@@ -19,7 +19,7 @@
         <el-button type="info" @click="$router.push('/register')">Registrarse</el-button>
       </el-form-item>  
     </el-form>
-  </l-container>
+  </el-container>
 </template>
 
 <script>
@@ -45,7 +45,7 @@ export default {
         await this.$auth.loginWith('local', {
           data: this.form,
         })
-        this.$router.push('/')
+        await this.$router.push('/')
         this.$notify({
           title: 'Inicio de sesión exitoso',
           message: 'Has iniciado sesión',
