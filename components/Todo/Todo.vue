@@ -45,7 +45,7 @@
           </template>
           {{ todo.date }}
         </el-descriptions-item>
-        <el-descriptions-item v-if="todo.completed === 0" content-style="{ 'text-align': 'center' }">
+        <el-descriptions-item v-if="todo.completed === 0" :content-style="{'text-align': 'center'}">
           <template slot="label">
             <i class="el-icon-finished"></i>
             Acciones

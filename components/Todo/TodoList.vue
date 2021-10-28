@@ -8,6 +8,7 @@
     <todo 
       v-for="todo in todos" 
       v-else-if="todos.length !== 0"
+      class="el-button-center"
       :key="todo.id"
       :todo="todo"
       @delete="$emit('delete', $event)"
@@ -15,6 +16,7 @@
     />
     <el-button 
       v-if="type === 'all'"
+      class="el-button-center"
       type="primary" 
       icon="el-icon-plus" 
       circle
@@ -38,3 +40,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.el-button-center {
+  margin: 0 auto;
+  display: block;
+}
+</style>

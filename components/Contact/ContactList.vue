@@ -13,6 +13,7 @@
     @delete="$emit('delete', $event)"
     />
     <el-button
+      class="el-button-center"
       type="primary"
       icon="el-icon-plus"
       circle
@@ -33,3 +34,10 @@ export default {
   methods: {},
 }
 </script>
+
+<style scoped>
+.el-button-center {
+  margin: 0 auto;
+  display: block;
+}
+</style>
