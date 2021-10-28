@@ -1,5 +1,5 @@
 <template>
-  <l-container>
+  <el-container>
     <el-alert 
       v-if="error"
       :title="error"
@@ -19,7 +19,7 @@
         <el-button type="info" @click="$router.push('/login')">Volver</el-button>
       </el-form-item>
     </el-form>
-  </l-container>
+  </el-container>
 </template>
 
 <script>
@@ -49,7 +49,7 @@ export default {
           data: this.form,
         })
 
-        this.$router.push('/')
+        await this.$router.push('/')
       } catch (err) {
         this.error = err.response.data.message
       }
