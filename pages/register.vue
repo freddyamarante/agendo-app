@@ -40,17 +40,16 @@ export default {
   methods: {
     async userRegister() {
       try {
-        this.error = ''
-        await this.$axios.post('http://localhost:3333/users', {
-          email: this.form.email,
-          password: this.form.password
-        })
+        const data = this.form
+        await this.$axios.post('http://localhost:3333/users', 
+          data
+        )
         
         await this.$auth.loginWith('local', {
           data: this.form,
         })
 
-        this.$router.push()
+        this.$router.push('/')
       } catch (err) {
         this.error = err.response.data.message
       }

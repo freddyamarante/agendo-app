@@ -1,14 +1,14 @@
 <template>
-  <el-container>
-    <el-main>
+  <el-row>
+    <el-col :md="24" :lg="12">
       <h1>Agendas</h1>
       <todo-list :todos="todos" @delete="removeTodo($event)" @completed="removeTodo($event)" />
-    </el-main>
-    <el-main>
+    </el-col>
+    <el-col :md="24" :lg="12">
       <h1>Contactos</h1>
       <contact-list :contacts="contacts" @delete="deleteContact($event)" />
-    </el-main>    
-  </el-container>
+    </el-col>  
+  </el-row>
 </template>
 
 <script>
@@ -31,9 +31,3 @@ export default {
 }
 </script>
 
-<style scoped>
-  .el-main {
-    text-align: center;
-    padding: 0;
-  }
-</style>
