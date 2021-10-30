@@ -8,8 +8,8 @@
     <todo 
       v-for="todo in todos" 
       v-else-if="todos.length !== 0"
-      class="el-button-center"
       :key="todo.id"
+      class="el-button-center"
       :todo="todo"
       @delete="$emit('delete', $event)"
       @completed="$emit('completed', $event)"
