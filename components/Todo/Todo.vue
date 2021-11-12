@@ -55,7 +55,12 @@
            icon="el-icon-edit" 
            circle
            @click="$router.push(`/todo/${todo.id}/update`)"></el-button>
-          <el-button type="info" icon="el-icon-message" circle></el-button>
+          <el-button 
+            type="info" 
+            icon="el-icon-message" 
+            circle
+            @click="$router.push(`/todo/${todo.id}/email`)">
+          </el-button>
           <el-button
             type="danger"
             icon="el-icon-delete"
