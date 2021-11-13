@@ -1,5 +1,5 @@
 <template>
-  <todo-email />
+  <todo-email :todo-id="$route.params.id"/>
 </template>
 
 <script>
