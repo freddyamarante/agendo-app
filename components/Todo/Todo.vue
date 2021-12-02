@@ -6,7 +6,7 @@
       :body-style="{ padding: '0px' }"
     >
       <el-descriptions :column="3" border>
-        <el-descriptions-item  :span="3">
+        <el-descriptions-item  :span="3" content-class-name="my-content">
           <template slot="label">
             <i class="el-icon-postcard"></i>
             Título
@@ -56,8 +56,9 @@
            circle
            @click="$router.push(`/todo/${todo.id}/update`)"></el-button>
           <el-button 
-            type="info" 
+            v-if="todo.contact"
             icon="el-icon-message" 
+            type="info" 
             circle
             @click="$router.push(`/todo/${todo.id}/email`)">
           </el-button>
@@ -113,7 +114,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .box-card {
   width: 750px;
   margin-bottom: 10px;
@@ -125,5 +126,9 @@ export default {
 
 .label {
   background: #E1F3D8
+}
+
+.my-content{
+  background: #f00;
 }
 </style>

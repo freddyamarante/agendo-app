@@ -92,7 +92,7 @@ export default {
     },
 
     defaultMessage() {
-      const message = `Hola, ${this.emailData.contact.name}\n\nEnvío este mensaje con la finalidad de hacerte recordar de la actividad: ${this.emailData.title}\n\nDescripción: ${this.emailData.description}\n\nFecha: ${this.emailData.date}\n\nFecha: ${this.emailData.location}\n\nEspero tu pronta respuesta,\n\nSaludos`
+      const message = `Hola, ${this.emailData.contact.name}\n\nEnvío este mensaje con la finalidad de hacerte recordar de la actividad: ${this.emailData.title}\n\nDescripción: ${this.emailData.description}\n\nFecha: ${this.emailData.date}\n\nLugar: ${this.emailData.location}\n\nEspero tu pronta respuesta,\n\nSaludos`
       return message
     }
   }

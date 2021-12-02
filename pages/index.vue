@@ -17,6 +17,7 @@ export default {
   async asyncData({ $axios }) {
     const todos = await $axios.$get('http://localhost:3333/todos/?completed=0')
     const contacts = await $axios.$get('http://localhost:3333/contacts')
+    console.log(todos)
     return { todos, contacts }
   },
   methods: {

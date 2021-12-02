@@ -51,9 +51,9 @@
           <div class="block">
             <el-date-picker
               v-model="form.date"
-              type="date"
+              type="datetime"
               placeholder="Escoge fecha"
-              format="dd.MM.yyyy"
+              format="dd.MM.yyyy HH:mm"
             >
             </el-date-picker>
           </div>
@@ -133,8 +133,7 @@ export default {
     },
 
     normalize(data) {
-      const date = new Date(data.date)
-      data.date = date.toLocaleDateString('fr-CH')
+      data.date = moment(data.date).format('DD.MM.yyyy HH:mm')
       return data
     },
 
@@ -142,7 +141,7 @@ export default {
       this.form = await this.$axios.$get(`http://localhost:3333/todos/${this.todoId}`)
       this.form.contactId = this.form.contact_id
       delete this.form.contact_id
-      this.form.date = moment(this.form.date, 'dd.MM.yyyy')
+      this.form.date = moment(this.form.date, 'dd.MM.yyyy HH:mm')
     }
   }
 }

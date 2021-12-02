@@ -4,7 +4,7 @@
       <h1>AgenDo</h1>
     </el-header>
     <el-container>
-      <el-alert v-if="error" :title="error" type="error"> </el-alert>
+      <el-alert v-for="error in errors" :key="error.message" :title="error.message" type="error"> </el-alert>
 
       <el-form ref="form" :model="form" label-width="120px">
         <el-form-item label="Correo">
@@ -39,7 +39,7 @@ export default {
         email: '',
         password: '',
       },
-      error: '',
+      errors: [],
     }
   },
   methods: {
@@ -54,7 +54,9 @@ export default {
 
         await this.$router.push('/')
       } catch (err) {
-        this.error = err.response.data.message
+        
+        this.errors = await err.response.data.errors
+        console.log(err.response.data.errors)
       }
     },
   },
