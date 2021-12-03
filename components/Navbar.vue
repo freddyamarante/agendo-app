@@ -2,6 +2,9 @@
   <el-menu 
     :default-active="$route.path" 
     mode="horizontal"
+    background-color="#fce181"
+    text-color="#00000"
+    active-text-color="#00000"
     >
     <el-menu-item :disabled="!$auth.loggedIn" index="/" @click="$router.push('/')">Inicio</el-menu-item>
     <el-menu-item :disabled="!$auth.loggedIn" index="/todo/completed" @click="$router.push('/todo/completed')">Completados</el-menu-item>
@@ -44,6 +47,7 @@
 
 <style scoped>
 .el-menu {
-  position: fixed;
+  width:100%;
+  color:black
 }
 </style>
