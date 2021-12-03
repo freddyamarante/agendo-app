@@ -15,7 +15,7 @@
         </el-form-item>
 
         <el-form-item>
-          <el-button type="primary" @click="userRegister()"
+          <el-button type="warning" @click="userRegister()"
             >Registrarse</el-button
           >
           <el-button type="info" @click="$router.push('/login')"
