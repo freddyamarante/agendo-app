@@ -6,7 +6,7 @@
       :body-style="{ padding: '0px' }"
     >
       <el-descriptions :column="3" border>
-        <el-descriptions-item  :span="3" content-class-name="my-content">
+        <el-descriptions-item  :span="3">
           <template slot="label">
             <i class="el-icon-postcard"></i>
             Título
@@ -124,11 +124,14 @@ export default {
   text-align: center;
 }
 
-.label {
-  background: #E1F3D8
+.el-descriptions tr{
+  background-color: #9fedd7 !important;
+  color: rgb(59, 58, 58) !important;
 }
 
-.my-content{
-  background: #f00;
+.el-descriptions th{
+  background-color: #026670 !important;
+  color: rgb(19, 18, 18) !important;
+  font-weight: bold !important;
 }
 </style>
