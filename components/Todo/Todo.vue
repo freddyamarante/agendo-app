@@ -125,13 +125,15 @@ export default {
 }
 
 .el-descriptions tr{
-  background-color: #9fedd7 !important;
+  background-color: #fef9c7 !important;
   color: rgb(59, 58, 58) !important;
 }
 
 .el-descriptions th{
-  background-color: #026670 !important;
+  background-color: #fce181 !important;
   color: rgb(19, 18, 18) !important;
   font-weight: bold !important;
 }
+
+
 </style>

@@ -58,15 +58,17 @@
             </el-date-picker>
           </div>
         </el-descriptions-item>
+        <el-descriptions-item>
+          <el-form-item>
+            <el-button v-if="type === 'create'" type="primary" @click="addTodo()"
+              >Añadir Agenda</el-button>
+            <el-button v-if="type === 'update'" type="primary" @click="updateTodo()"
+              >Editar Agenda</el-button
+            >
+          </el-form-item>
+        </el-descriptions-item>
       </el-descriptions>
-      <el-form-item>
-        <el-button v-if="type === 'create'" type="primary" @click="addTodo()"
-          >Añadir Agenda</el-button>
-        <el-button v-if="type === 'update'" type="primary" @click="updateTodo()"
-          >Editar Agenda</el-button
-        >
-      </el-form-item>
-    </el-form>
+      </el-form>
   </el-card>
 </template>
 
@@ -74,16 +76,16 @@
 import moment from 'moment'
 
 export default {
-  name:'TodoForm',
+  name: 'TodoForm',
   props: {
     todoId: {
       type: String,
       default: null,
-      },
+    },
     type: {
       type: String,
-      default: 'create'
-    }
+      default: 'create',
+    },
   },
   data() {
     return {
@@ -93,21 +95,23 @@ export default {
         location: '',
         contactId: '',
         date: '',
-        completed: false
+        completed: false,
       },
       contactOptions: [],
-      loading: false
+      loading: false,
     }
   },
   mounted() {
     if (this.todoId) {
-    this.getTodoById()
+      this.getTodoById()
     }
     this.getContacts()
   },
   methods: {
     async getContacts() {
-      this.contactOptions = await this.$axios.$get('http://localhost:3333/contacts')
+      this.contactOptions = await this.$axios.$get(
+        'http://localhost:3333/contacts'
+      )
     },
 
     async addTodo() {
@@ -118,7 +122,7 @@ export default {
       await this.$router.push('/')
       this.$notify({
         title: 'Agenda añadida',
-        type: 'success'
+        type: 'success',
       })
     },
 
@@ -128,7 +132,7 @@ export default {
       await this.$router.push('/')
       this.$notify({
         title: 'Agenda editada',
-        type: 'success'
+        type: 'success',
       })
     },
 
@@ -138,23 +142,32 @@ export default {
     },
 
     async getTodoById() {
-      this.form = await this.$axios.$get(`http://localhost:3333/todos/${this.todoId}`)
+      this.form = await this.$axios.$get(
+        `http://localhost:3333/todos/${this.todoId}`
+      )
       this.form.contactId = this.form.contact_id
       delete this.form.contact_id
       this.form.date = moment(this.form.date, 'dd.MM.yyyy HH:mm')
-    }
-  }
+    },
+  },
 }
 </script>
 
-<style scoped>
+<style>
 .box-card {
   width: 750px;
-  padding: 10;
-  margin-bottom: 10px;
 }
 
-.center {
-  text-align: center;
+.el-form {
+    text-align: center;
+}
+
+.el-button {
+  margin-top: 10px;
+  height: 40;
+}
+
+.el-card {
+  background: #fef9c7
 }
 </style>
