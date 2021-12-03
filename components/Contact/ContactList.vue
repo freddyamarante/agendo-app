@@ -14,7 +14,7 @@
     />
     <el-button
       class="el-button-center"
-      type="primary"
+      type="warning"
       icon="el-icon-plus"
       circle
       @click="$router.push('/contact/create')"

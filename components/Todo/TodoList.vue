@@ -17,7 +17,7 @@
     <el-button 
       v-if="type === 'all'"
       class="el-button-center"
-      type="primary" 
+      type="warning" 
       icon="el-icon-plus" 
       circle
       @click="$router.push('/todo/create')"

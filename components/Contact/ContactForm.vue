@@ -46,12 +46,12 @@
         </el-descriptions-item>
       </el-descriptions>
       <el-form-item>
-        <el-button v-if="type === 'create'" type="primary" @click="addContact()"
+        <el-button v-if="type === 'create'" type="warning" @click="addContact()"
           >Añadir Contacto</el-button
         >
         <el-button
           v-if="type === 'update'"
-          type="primary"
+          type="warning"
           @click="updateContact()"
           >Editar Contacto</el-button
         >

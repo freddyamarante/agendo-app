@@ -58,16 +58,14 @@
             </el-date-picker>
           </div>
         </el-descriptions-item>
-        <el-descriptions-item>
-          <el-form-item>
-            <el-button v-if="type === 'create'" type="primary" @click="addTodo()"
+      </el-descriptions>
+      <el-form-item>
+            <el-button v-if="type === 'create'" type="warning" @click="addTodo()"
               >Añadir Agenda</el-button>
-            <el-button v-if="type === 'update'" type="primary" @click="updateTodo()"
+            <el-button v-if="type === 'update'" type="warning" @click="updateTodo()"
               >Editar Agenda</el-button
             >
           </el-form-item>
-        </el-descriptions-item>
-      </el-descriptions>
       </el-form>
   </el-card>
 </template>
@@ -159,7 +157,7 @@ export default {
 }
 
 .el-form {
-    text-align: center;
+  text-align: center;
 }
 
 .el-button {
